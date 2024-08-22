@@ -10,18 +10,30 @@
 <body>
     <p id="1"></p>
 
-</body>
-<script>
-    const a = document.getElementById(1);
-    var arr = ['Smile : 😊', 'Angry : 😠', 'Cry : 😭', 'Thumbs Up : 👍', 'Thumbs Down : 👎'];
-    for (var i = 0; i < arr.length; i++) {
+    <script>
+        const display = document.getElementById("1"); 
+        var arr = ['Smile : 😊', 'Angry : 😠', 'Cry : 😭', 'Thumbs Up : 👍', 'Thumbs Down : 👎'];
 
-        // setInterval(function () { document.write(arr[j] + "<br>") }, 2000);
-        document.write(arr[i] + "<br>")
-    }
+        function time(array, timeout) {
+            display.textContent = array[0]; 
+            let index = 0; 
 
 
-</script>
+            function updateDisplay() {
+                display.textContent = array[index]; 
+                index++; 
+                if (index >= array.length) { 
+                    clearInterval(intervalId); 
+                } else {
+                    intervalId = setInterval(updateDisplay, timeout); 
+                }
+            }
+
+            let intervalId = setInterval(updateDisplay, timeout); 
+        }
+
+        time(arr, 3000); 
+    </script>
 </body>
 
 </html>
