@@ -14,25 +14,16 @@
         const display = document.getElementById("1"); 
         var arr = ['Smile : 😊', 'Angry : 😠', 'Cry : 😭', 'Thumbs Up : 👍', 'Thumbs Down : 👎'];
 
-        function time(array, timeout) {
-            display.textContent = array[0]; 
-            let index = 0; 
-
-
-            function updateDisplay() {
-                display.textContent = array[index]; 
-                index++; 
-                if (index >= array.length) { 
-                    clearInterval(intervalId); 
-                } else {
-                    intervalId = setInterval(updateDisplay, timeout); 
-                }
+        var i=0;
+        function time(){
+            document.getElementById("1").innerHTML=arr[i];
+            i++;
+            if(i>=arr.length){
+                i=0;
             }
-
-            let intervalId = setInterval(updateDisplay, timeout); 
         }
 
-        time(arr, 3000); 
+        setInterval(time,1000);
     </script>
 </body>
 
